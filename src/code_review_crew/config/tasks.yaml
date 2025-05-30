@@ -1,0 +1,164 @@
+solid_principles_analysis:
+  description: >
+    Analyze the provided code for adherence to SOLID principles:
+    
+    1. **Single Responsibility Principle (SRP)**: Check if each class/function has only one reason to change
+    2. **Open/Closed Principle (OCP)**: Verify if code is open for extension but closed for modification
+    3. **Liskov Substitution Principle (LSP)**: Ensure derived classes can replace base classes without breaking functionality
+    4. **Interface Segregation Principle (ISP)**: Check if interfaces are focused and not forcing unnecessary dependencies
+    5. **Dependency Inversion Principle (DIP)**: Verify if high-level modules don't depend on low-level modules
+    
+    Focus on:
+    - Class responsibilities and cohesion
+    - Coupling between modules
+    - Abstract vs concrete dependencies
+    - Interface design quality
+    - Inheritance hierarchies
+    
+    Provide specific examples of violations found and concrete refactoring suggestions.
+    Rate each principle adherence from 1-10 and provide an overall SOLID score.
+  expected_output: >
+    A detailed SOLID principles analysis report containing:
+    - Overall SOLID compliance score (1-10)
+    - Individual scores for each principle (S.O.L.I.D)
+    - Specific violations found with code examples
+    - Refactoring recommendations with before/after code snippets
+    - Priority ranking of fixes (Critical/High/Medium/Low)
+  agent: solid_principles_reviewer
+
+design_patterns_review:
+  description: >
+    Analyze the code for design pattern usage and opportunities:
+    
+    1. **Pattern Detection**: Identify existing design patterns in the codebase
+    2. **Anti-Pattern Identification**: Find common anti-patterns and code smells
+    3. **Pattern Opportunities**: Suggest where appropriate patterns could be applied
+    4. **Pattern Misuse**: Identify incorrectly implemented or over-engineered patterns
+    
+    Focus on:
+    - Creational patterns (Factory, Builder, Singleton, etc.)
+    - Structural patterns (Adapter, Decorator, Facade, etc.)
+    - Behavioral patterns (Strategy, Observer, Command, etc.)
+    - Architectural patterns (MVC, MVP, Repository, etc.)
+    - Anti-patterns (God Object, Spaghetti Code, Copy-Paste Programming, etc.)
+    
+    Provide practical examples and refactoring suggestions with clear benefits.
+  expected_output: >
+    A comprehensive design patterns analysis report containing:
+    - List of detected patterns with implementation quality assessment
+    - Identified anti-patterns with severity levels
+    - Recommended pattern applications with justification
+    - Code examples showing pattern implementation improvements
+    - Refactoring roadmap prioritized by impact and effort
+  agent: design_patterns_analyzer
+
+code_quality_assessment:
+  description: >
+    Perform a thorough code quality assessment focusing on:
+    
+    1. **Clean Code Principles**: Evaluate naming, functions, classes, and comments
+    2. **Code Smells Detection**: Identify common code smells and their severity
+    3. **Complexity Analysis**: Assess cyclomatic complexity and code maintainability
+    4. **DRY Principle**: Find code duplication and suggest consolidation
+    5. **KISS & YAGNI**: Evaluate code simplicity and necessity
+    
+    Analyze:
+    - Method and class length
+    - Naming conventions and clarity
+    - Code duplication instances
+    - Complex conditional logic
+    - Dead code and unused variables
+    - Comment quality and necessity
+    - Function parameter counts
+    - Nesting levels and readability
+    
+    Provide specific improvement recommendations with measurable impact.
+  expected_output: >
+    A detailed code quality report containing:
+    - Overall code quality score with metrics breakdown
+    - List of code smells categorized by type and severity
+    - Complexity metrics (cyclomatic, cognitive, maintainability index)
+    - Duplication analysis with consolidation opportunities
+    - Readability assessment with improvement suggestions
+    - Refactoring priority matrix based on impact vs effort
+  agent: code_quality_auditor
+
+architectural_analysis:
+  description: >
+    Conduct a comprehensive architectural review of the codebase:
+    
+    1. **Layer Separation**: Analyze how well concerns are separated across layers
+    2. **Module Organization**: Evaluate package/module structure and dependencies
+    3. **Dependency Management**: Check for circular dependencies and coupling issues
+    4. **Architectural Patterns**: Assess adherence to chosen architectural style
+    5. **Scalability Considerations**: Evaluate how well the architecture supports growth
+    
+    Examine:
+    - Package/module organization and naming
+    - Inter-module dependencies and coupling
+    - Data flow and control flow patterns
+    - Separation of business logic from infrastructure
+    - Configuration and dependency injection
+    - Error handling patterns
+    - Testing architecture and testability
+    
+    Provide strategic recommendations for architectural improvements.
+  expected_output: >
+    A comprehensive architectural analysis report containing:
+    - Architecture assessment score with detailed breakdown
+    - Dependency graph analysis with problematic relationships highlighted
+    - Layer separation evaluation with recommendations
+    - Module organization improvements with restructuring suggestions
+    - Scalability and maintainability assessment
+    - Strategic refactoring roadmap with timeline estimates
+  agent: architecture_reviewer
+
+consolidate_review_findings:
+  description: >
+    Consolidate all analysis findings from the SOLID principles reviewer, 
+    design patterns analyzer, code quality auditor, and architecture reviewer 
+    into a comprehensive software engineering review report.
+    
+    Create a unified report that:
+    1. Synthesizes findings from all specialized reviews
+    2. Identifies common themes and interconnected issues
+    3. Prioritizes recommendations based on impact and effort
+    4. Provides a concrete action plan for improvements
+    5. Includes quick wins and long-term strategic changes
+    
+    Ensure the report is actionable and provides clear next steps for the development team.
+  expected_output: >
+    A comprehensive Software Engineering Best Practices Review Report including:
+    
+    ## Executive Summary
+    - Overall software engineering maturity score
+    - Critical issues requiring immediate attention
+    - Key improvement opportunities
+    - Estimated effort and timeline for major improvements
+    
+    ## Detailed Analysis
+    - SOLID Principles compliance summary
+    - Design patterns usage and opportunities
+    - Code quality metrics and assessment
+    - Architectural evaluation and recommendations
+    
+    ## Prioritized Action Plan
+    - Critical fixes (immediate action required)
+    - High-priority improvements (next sprint)
+    - Medium-priority enhancements (next quarter)
+    - Long-term strategic changes (roadmap)
+    
+    ## Implementation Guidance
+    - Step-by-step refactoring recommendations
+    - Code examples and templates
+    - Best practices documentation
+    - Success metrics and validation criteria
+    
+    The report should be saved as 'software_engineering_review_report.md'
+  agent: architecture_reviewer
+  context:
+    - solid_principles_analysis
+    - design_patterns_review
+    - code_quality_assessment
+    - architectural_analysis
+  output_file: software_engineering_review_report.md
